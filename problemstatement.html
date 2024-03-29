@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem Statement - DoomedDice</title>
+  <style>
+    /* Overall styling */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #2ecc71; /* Emerald color */
+    }
+
+    /* Container for header and navigation */
+    .header-nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* Styling for header */
+    header {
+      display: flex;
+      align-items: center;
+    }
+
+    header img {
+      height: 50px; /* Adjust the height as needed */
+      margin-right: 10px;
+    }
+
+    header h1 {
+      margin: 0;
+      color: white;
+    }
+
+    /* Styling for navigation bar */
+    nav {
+      background-color: #2ecc71;
+      overflow: hidden;
+      border-radius: 5px;
+    }
+
+    nav a {
+      display: inline-block;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      background-color: yellowgreen;
+    }
+
+    /* Additional styling for container */
+    .container {
+      width: 1295px; 
+      height: 500px;/* Increase width as needed */
+      margin: 0 auto; /* Center the container horizontally */
+      padding: 50px;
+      border: 1px solid black;
+      background-color: #ffffff;
+      box-shadow: 0 15px 35px rgba(50, 50, 50, 0.15);
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    h2 {
+      color: rgb(255, 69, 58); /* Change text color to R:255, G:69, B:58 */
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 20px 0;
+      color: #333; /* Text color */
+      text-align: justify;
+    }
+
+    /* Highlight Part A and Part B */
+    .part-heading {
+      color: rgb(255, 69, 58);
+      font-weight: bold;
+    }
+
+    /* Center Part A and Part B */
+    .part-heading-container {
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Container for header and navigation -->
+  <div class="header-nav-container">
+    <!-- Header -->
+    <header>
+      
+      <h1>DOOMEDDICE</h1>
+    </header>
+
+    <!-- Navigation bar -->
+    <nav>
+      <a href="index.html" class="nav-link">HOME</a>
+      <a href="problemstatement.html" class="nav-link">PROBLEM STATEMENT</a>
+      <a href="totalcombination.html" class="nav-link" data-target="tc">TOTAL COMBINATION</a>
+      <a href="distribution.html" class="nav-link" data-target="pd">DISTRIBUTION</a>
+      <a href="probabilitycalculation.html" class="nav-link" data-target="pc">PROBABILITY CALCULATION</a>
+      <a href="reconstructeddice.html" class="nav-link" data-target="rc">RECONSTRUCTED DICE</a>
+    </nav>
+  </div>
+
+  <!-- Container for problem statement -->
+  <div class="container">
+    <h2>PROBLEM STATEMENT</h2>
+    <div class="part-heading">
+      <p><span class="part-heading-container"><strong>Part-A (15-20 Minutes):</strong></span></p>
+      <p><span class="part-heading">Total Combinations Calculation:</span>
+        Determine the total number of combinations possible when rolling both Die A and Die B together. <br><br>
+        <span class="part-heading">Distribution Calculation:</span>
+        Calculate and display the distribution of all possible combinations that can be obtained when rolling both Die A and Die B together. <br><br>
+        <span class="part-heading">Probability Calculation:</span>
+        Calculate the probability of all possible sums occurring among the number of combinations obtained in the previous step. For each sum, determine the probability as the ratio of the number of combinations resulting in that sum to the total number of combinations. </p>
+    </div>
+    <div class="part-heading">
+      <p><span class="part-heading-container">Part-B (25-30 Minutes):</span></p>
+      <p><span class="part-heading">Transformation Function Requirements:</span><br>
+        Develop a transformation function named undoom_dice that takes the original configurations of Die A and Die B as input parameters.<br>
+        >> Die A cannot have more than 4 spots on a face.<br>
+        >> Die A may have multiple faces with the same number of spots.<br>
+        >> Die B can have as many spots on a face as necessary, even more than 6.<br><br>
+        <span class="part-heading">Input:</span><br>
+        Original configurations of Die A and Die B: Die_A = [1, 2, 3, 4, 5, 6] & Die_B = Die_A = [1, 2, 3, 4, 5, 6]</p>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+

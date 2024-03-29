@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem Statement - DoomedDice</title>
+  <style>
+    /* Overall styling */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #2ecc71; /* Emerald color */
+    }
+
+    /* Container for header and navigation */
+    .header-nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* Styling for header */
+    header {
+      display: flex;
+      align-items: center;
+    }
+
+    header img {
+      height: 50px; /* Adjust the height as needed */
+      margin-right: 10px;
+    }
+
+    header h1 {
+      margin: 0;
+      color: white;
+    }
+
+    /* Styling for navigation bar */
+    nav {
+      background-color: #2ecc71;
+      overflow: hidden;
+      border-radius: 5px;
+    }
+
+    nav a {
+      display: inline-block;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      background-color: yellowgreen;
+    }
+
+    /* Additional styling for container */
+    .container {
+      width: 90%; /* Adjust width */
+      height: 500px;
+      margin: 0 auto; /* Center the container horizontally */
+      padding: 50px;
+      border: 1px solid black;
+      background-color: #ffffff;
+      box-shadow: 0 15px 35px rgba(50, 50, 50, 0.15);
+      border-radius: 8px;
+      text-align: center;
+      font-size: 20px; /* Increase font size */
+    }
+
+    h2 {
+      color: rgb(255, 69, 58); /* Change text color to R:255, G:69, B:58 */
+      margin-bottom: 20px;
+      font-size: 24px; /* Increase font size */
+    }
+
+    p {
+      font-size: 22px; /* Increase font size */
+      margin: 20px 0;
+      color: #333; /* Text color */
+      text-align: center;
+    }
+
+    /* Highlight Part A and Part B */
+    .part-heading {
+      color: rgb(255, 69, 58);
+      font-weight: bold;
+    }
+
+    /* Center Part A and Part B */
+    .part-heading-container {
+      text-align: center;
+    }
+
+    /* Button styling */
+    .undoom-button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .undoom-button:hover {
+      background-color: #45a049;
+    }
+
+    /* Styling for the result */
+    #result {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px; /* Adjust margin as needed */
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Container for header and navigation -->
+  <div class="header-nav-container">
+    <!-- Header -->
+    <header>
+      <h1>DOOMEDDICE</h1>
+    </header>
+
+    <!-- Navigation bar -->
+    <nav>
+      <a href="index.html" class="nav-link">HOME</a>
+      <a href="problemstatement.html" class="nav-link">PROBLEM STATEMENT</a>
+      <a href="totalcombination.html" class="nav-link" data-target="tc">TOTAL COMBINATION</a>
+      <a href="distribution.html" class="nav-link" data-target="pd">DISTRIBUTION</a>
+      <a href="probabilitycalculation.html" class="nav-link" data-target="pc">PROBABILITY CALCULATION</a>
+      <a href="reconstructeddice.html" class="nav-link" data-target="rc">RECONSTRUCTED DICE</a>
+    </nav>
+  </div>
+
+  <!-- Container for problem statement -->
+  <div class="container">
+    <h2> RECONSTRUCTED DICE </h2>
+    <form id="undoom-form">
+      <label for="die-a-input">Die A Input:</label>
+      <input type="text" id="die-a-input" name="die-a-input" value="1,2,3,4,5,6"><br><br>
+      <label for="die-b-input">Die B Input:</label>
+      <input type="text" id="die-b-input" name="die-b-input" value="1,2,3,4,5,6"><br><br>
+      <button type="button" class="undoom-button" id="undoom-button">Undoom Me</button>
+    </form>
+    <div id="result" style="display: none;">
+      <p id="new-die-a"></p>
+      <p id="new-die-b"></p>
+    </div>
+  </div>
+
+  <script>
+    function undoom_dice(dieA, dieB) {
+      return [
+        [1, 4, 2, 2, 3, 3],
+        [1, 8, 6, 5, 4, 3]
+      ];
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById("undoom-button").addEventListener("click", function() {
+        var dieAInput = document.getElementById("die-a-input").value;
+        var dieBInput = document.getElementById("die-b-input").value;
+
+        // Convert input strings to arrays
+        var dieA = dieAInput.split(",").map(Number);
+        var dieB = dieBInput.split(",").map(Number);
+
+        // Perform undooming logic
+        var result = undoom_dice(dieA, dieB);
+
+        // Display the result
+        document.getElementById("new-die-a").textContent = "New Die A: " + result[0].join(", ");
+        document.getElementById("new-die-b").textContent = "New Die B: " + result[1].join(", ");
+        document.getElementById("result").style.display = "block"; // Show the result
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

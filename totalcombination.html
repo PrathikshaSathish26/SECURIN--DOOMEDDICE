@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Total Combination - DoomedDice</title>
+  <style>
+    /* Overall styling */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #2ecc71; /* Emerald color */
+    }
+
+    /* Container for header and navigation */
+    .header-nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* Styling for header */
+    header {
+      display: flex;
+      align-items: center;
+    }
+
+    header img {
+      height: 50px; /* Adjust the height as needed */
+      margin-right: 10px;
+    }
+
+    header h1 {
+      margin: 0;
+      color: white;
+    }
+
+    /* Styling for navigation bar */
+    nav {
+      background-color: #2ecc71;
+      overflow: hidden;
+      border-radius: 5px;
+    }
+
+    nav a {
+      display: inline-block;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      background-color: yellowgreen;
+    }
+
+    /* Additional styling for container */
+    .container {
+      width: 1295px; 
+      height: 500px;/* Increase width as needed */
+      margin: 0 auto; /* Center the container horizontally */
+      padding: 50px;
+      border: 1px solid black;
+      background-color: #ffffff;
+      box-shadow: 0 15px 35px rgba(50, 50, 50, 0.15);
+      border-radius: 8px;
+      text-align: center;
+      position: relative;
+    }
+
+    h2 {
+      color: rgb(255, 69, 58); /* Change text color to R:255, G:69, B:58 */
+      margin-bottom: 20px;
+    }
+
+    /* Style for dice images */
+    .dice {
+      width: 100px; /* Increased width */
+      height: auto;
+      margin-bottom: 20px; /* Added margin-bottom */
+    }
+
+    /* Style for counters */
+    .counters {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .counter {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    /* Style for the highlighted text */
+    .highlighted-text {
+      font-weight: bold;
+      font-size: 20px; /* Adjusted font size */
+      color: #ff4136; /* Red color */
+      margin-top: 20px; /* Adjusted margin-top */
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Container for header and navigation -->
+  <div class="header-nav-container">
+    <!-- Header -->
+    <header>
+      <h1>DOOMEDDICE</h1>
+    </header>
+
+    <!-- Navigation bar -->
+    <nav>
+      <a href="index.html" class="nav-link">HOME</a>
+      <a href="problemstatement.html" class="nav-link">PROBLEM STATEMENT</a>
+      <a href="totalcombination.html" class="nav-link" data-target="tc">TOTAL COMBINATION</a>
+      <a href="distribution.html" class="nav-link" data-target="pd">DISTRIBUTION</a>
+      <a href="probabilitycalculation.html" class="nav-link" data-target="pc">PROBABILITY CALCULATION</a>
+      <a href="reconstructeddice.html" class="nav-link" data-target="rc">RECONSTRUCTED DICE</a>
+    </nav>
+  </div>
+
+  <!-- Container for total combination -->
+  <div class="container">
+    <h2>TOTAL COMBINATION</h2>
+    <!-- Dice images -->
+    <img src="assets/dice-05.png" alt="1" class="dice">
+    <img src="assets/dice-01.png" alt="1" class="dice">
+    <img src="assets/dice-02.png" alt="1" class="dice">
+    <img src="assets/dice-03.png" alt="1" class="dice">
+    <img src="assets/dice-04.png" alt="1" class="dice">
+    <img src="assets/dice-06.png" alt="1" class="dice">
+
+    <!-- Counters -->
+    <div class="counters">
+      <!-- Die One Counter (slow) -->
+      <div id="counterSlow" class="counter">Die One Counter: 1</div>
+      <!-- Die Two Counter (fast) -->
+      <div id="counterFast" class="counter">Die Two Counter: 1</div>
+    </div>
+    <!-- Combination Counter -->
+    <div id="counterCombination" class="counter" style="margin-top: 20px;">Combination Counter: 1</div>
+    
+    <!-- Total Combination Text -->
+    <p style="margin-top: 20px;" class="highlighted-text">Hence the total number of combinations is: 6^(number of dice).</p>
+    <p class="highlighted-text">Each die has 6 faces, so when two dice are rolled, each die can show any of its 6 faces, thus resulting in 6 combinations for each roll.</p>
+    <p class="highlighted-text">Therefore, there are a total of 6 x 6 = 36 possible outcomes when two dice are rolled.</p>
+    
+  </div>
+
+  <script>
+    // Function to increment counters
+    function incrementCounters() {
+      // Initialize counters
+      let counterSlow = 1;
+      let counterFast = 1;
+      let counterCombination = 1;
+
+      // Increment counter 1 (slow) when counter 2 reaches 6
+      let intervalSlow = setInterval(() => {
+        if (counterFast % 1 === 0) {
+          counterSlow++;
+          document.getElementById('counterSlow').innerText = `Die One Counter: ${counterSlow}`;
+        }
+        if (counterSlow === 6) clearInterval(intervalSlow);
+      }, 6000);
+
+      // Increment counter 2 (fast) for 6 cycles
+      let intervalFast = setInterval(() => {
+        counterFast++;
+        if (counterFast === 7) counterFast = 1;
+        document.getElementById('counterFast').innerText = `Die Two Counter: ${counterFast}`;
+        if (counterFast === 1) counterCombination++;
+        if (counterCombination === 37) clearInterval(intervalFast);
+      }, 1000);
+
+      // Increment combination counter
+      let intervalCombination = setInterval(() => {
+        counterCombination++;
+        document.getElementById('counterCombination').innerText = `Combination Counter: ${counterCombination}`;
+        if (counterCombination === 36) clearInterval(intervalCombination);
+      }, 1000);
+    }
+
+    // Call function to start incrementing counters
+    incrementCounters();
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
