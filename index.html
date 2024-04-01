@@ -99,7 +99,7 @@
     }
 
     .shake {
-      animation: shake 0.5s infinite;
+      animation: shake 0.2s infinite; /* Reduced animation duration */
     }
 
     @keyframes shake {
@@ -139,8 +139,8 @@
   <!-- Your existing container content -->
   <div class="container">
     <div class="dice-wrapper">
-      <img src="assets/dice-01.png" id="#die-1">
-      <img src="assets/dice-02.png" id="#die-2">
+      <img src="assets/dice-01.png" id="die-1">
+      <img src="assets/dice-02.png" id="die-2">
     </div>
     <p id="total">DOOMED DICE</p>
     <button onclick="roll()">ROLL THE DICE</button>
@@ -149,3 +149,5 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+

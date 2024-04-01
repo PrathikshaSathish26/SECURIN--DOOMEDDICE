@@ -128,11 +128,11 @@
   <div class="container">
     <h2>TOTAL COMBINATION</h2>
     <!-- Dice images -->
-    <img src="assets/dice-05.png" alt="1" class="dice">
     <img src="assets/dice-01.png" alt="1" class="dice">
     <img src="assets/dice-02.png" alt="1" class="dice">
     <img src="assets/dice-03.png" alt="1" class="dice">
     <img src="assets/dice-04.png" alt="1" class="dice">
+    <img src="assets/dice-05.png" alt="1" class="dice">
     <img src="assets/dice-06.png" alt="1" class="dice">
 
     <!-- Counters -->
@@ -174,7 +174,7 @@
         counterFast++;
         if (counterFast === 7) counterFast = 1;
         document.getElementById('counterFast').innerText = `Die Two Counter: ${counterFast}`;
-        if (counterFast === 1) counterCombination++;
+        if (counterFast === 6) counterCombination++; // Increment combination counter when Die Two completes 6 cycles
         if (counterCombination === 37) clearInterval(intervalFast);
       }, 1000);
 
@@ -191,25 +191,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
